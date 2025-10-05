@@ -1,10 +1,18 @@
-def load_csv(filepath: str) -> pd.DataFrame:
-    """
-    Load sensor data from a CSV file.
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Oct  5 21:35:51 2025
 
-    Args:
-        filepath (str): Path to the CSV file.
+@author: Ifeanyi
+"""
 
-    Returns:
-        pd.DataFrame: Loaded data as a pandas DataFrame.
-    """
+import pandas as pd
+
+def load_data(file_path):
+  
+    # For Handling Error
+    try:
+        df = pd.read_csv(file_path)     # use to load csv file
+        return df
+    except FileNotFoundError:
+        print(f"Error: File {file_path} not found")
+        return pd.DataFrame()
